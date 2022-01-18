@@ -1,0 +1,77 @@
+session_name: dev
+windows:
+- window_name: MP|log
+  layout: tiled
+  shell_command_before:
+    - alias start_mp="bundle exec puma -C config/puma.rb -p 3000"
+    - cd ~/repos/merchant_portal
+  panes:
+    - echo hello
+    - tail -f log/development.log
+    - shell_command:
+      - shutup
+      - start_mp
+    - bundle exec sidekiq
+- window_name: AMS
+  layout: tiled
+  shell_command_before:
+    - alias start_ams="bundle exec rails s -p 3030 -b 0.0.0.0"
+    - cd ~/repos/application_management_system
+  panes:
+    - echo hello
+    - start_ams
+    - tail -f log/development.log
+- window_name: CP
+  layout: tiled
+  shell_command_before:
+    - cd ~/repos/customer_portal
+  panes:
+    - echo hello
+    - bundle exec rails server -p 3001
+    - tail -f log/development.log
+- window_name: LMS
+  layout: tiled
+  shell_command_before:
+    - alias start_lms="bundle exec rails s -p 3005 -b 0.0.0.0"
+    - cd ~/repos/lease_management_system
+  panes:
+    - echo hello
+    - start_lms
+    - echo hello
+- window_name: Kipper
+  layout: tiled
+  shell_command_before:
+    - alias start_kipper="bundle exec rails s -p 3002 -b 0.0.0.0"
+    - cd ~/repos/kipper
+  panes:
+    - echo hello
+    - start_kipper
+    - echo hello
+- window_name: BAS
+  layout: tiled
+  shell_command_before:
+    - alias start_bas="bundle exec rails s -p 3065 -b 0.0.0.0"
+    - cd ~/repos/bank_account_service
+  panes:
+    - echo hello
+    - start_bas
+    - echo hello
+- window_name: UW
+  layout: tiled
+  shell_command_before:
+    - alias start_uw="bundle exec rails s -p 3006 -b 0.0.0.0"
+    - cd ~/repos/underwriting
+  panes:
+    - 
+    - start_uw
+    - echo hello
+- window_name: global_customer
+  layout: tiled
+  shell_command_before:
+    - alias start_gcrs="bundle exec rails s -p 3008 -b 0.0.0.0"
+    - cd ~/repos/global_customer
+  panes:
+    - 
+    - start_gcrs
+    - echo hello
+
