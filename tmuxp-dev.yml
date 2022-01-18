@@ -6,11 +6,11 @@ windows:
     - alias start_mp="bundle exec puma -C config/puma.rb -p 3000"
     - cd ~/repos/merchant_portal
   panes:
-    - echo hello
     - tail -f log/development.log
     - shell_command:
       - shutup
       - start_mp
+    - 
     - bundle exec sidekiq
 - window_name: AMS
   layout: tiled
